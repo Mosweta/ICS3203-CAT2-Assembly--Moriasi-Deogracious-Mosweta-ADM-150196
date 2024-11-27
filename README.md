@@ -54,7 +54,7 @@ The number is zero
 
 - **Unconditional Jumps**:
   - The `jmp` instruction is used to skip over the subsequent classification checks after a match is found, ensuring only one classification message is printed.
-
+---
 
 ## Task 2: Array Reversal
 
@@ -86,6 +86,85 @@ It outputs:
 ```bash
 The reversed array is: 1 2 3 4 5
 ```
+## Task 3: Modular Program with Subroutines for Factorial Calculation 
+
+## Purpose:
+
+This program calculates the factorial of a user-input number between 1 and 10 using assembly language. It validates the input, computes the factorial recursively, and outputs the result.
+
+## How to Compile and Run:
+
+### 1. **Assembling the Code:**
+To compile and assemble the code, use the following commands:
+
+```bash
+nasm -f elf32 task3Factorial.asm -o task3Factorial.o
+ld -m elf_i386 -s -o task3Factorial task3Factorial.o
+```
+---
+### 2. **Running the Program:**
+After assembling and linking the program, you can run it using the following command:
+
+```bash
+./task3Factorial
+```
+## Input:
+Enter any number between 1 and 10 for example:
+```bash
+Enter a number (1-10): 5
+```
+## Output:
+The program calculates the factorial of the input number and outputs.
+It outputs:
+```bash
+The factorial of the number is: 120
+```
+###Insights
+### **1. Input Handling**
+- The program prompts the user to enter a number between `1` and `10`.
+- The input is read from the console, converted from ASCII to an integer, and stored in the `input_num` memory location.
+
+### **2. Input Validation**
+- The program ensures the input is valid:
+  - If `input_num` is less than `1` or greater than `10`, an error message is displayed, and the program exits.
+
+### **3. Factorial Calculation**
+- The factorial of the input number is calculated using recursion:
+  - **Base Case**: If `eax` equals `1`, the function returns `1`.
+  - **Recursive Case**:
+    1. The current value of `eax` is saved onto the stack using `push`.
+    2. The program decrements `eax` and recursively calls the factorial function.
+    3. The saved value is restored using `pop`, and the result of the recursive call is multiplied by the saved value.
+
+### **4. Number-to-String Conversion**
+- The calculated factorial (stored in `eax`) is converted to a string:
+  1. The remainder of dividing `eax` by `10` is computed using `div` and stored in `edx`.
+  2. The remainder is converted to an ASCII character and stored in the buffer.
+  3. The process repeats until `eax` becomes `0`.
+
+### **5. Status Messages**
+- The program displays appropriate messages during execution:
+  - If the input is valid, the factorial result is displayed.
+  - If the input is invalid, an error message prompts the user to enter a number between `1` and `10`.
+
+---
+
+## **Flow of Execution**
+1. **Prompt User**: The program asks the user to enter a number between `1` and `10`.
+2. **Read Input**: The input is read and converted to an integer.
+3. **Validate Input**: The program checks if the input is within the valid range:
+   - If valid, it proceeds to calculate the factorial.
+   - If invalid, it displays an error message and exits.
+4. **Calculate Factorial**:
+   - Uses a recursive function, saving and restoring values using the stack.
+5. **Convert Result to String**:
+   - Converts the factorial result from an integer to a string for display.
+6. **Display Result**: The program outputs the calculated factorial.
+7. **Exit**: The program terminates gracefully.
+
+---
+
+---
 ## Task 4: Data Monitoring and Control Using Port-Based Simulation 
 
 ## Purpose:
