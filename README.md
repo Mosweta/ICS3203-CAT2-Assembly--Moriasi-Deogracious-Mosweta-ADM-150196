@@ -1,5 +1,5 @@
-# ICS3203-CAT2-Assembly--Moriasi-Deogracious-Mosweta-ADM-150196
-# ICS3203-CAT2-Assembly - Task 2: Array Reversal
+## ICS3203-CAT2-Assembly--Moriasi-Deogracious-Mosweta-ADM-150196
+# Task 2: Array Reversal
 
 ## Purpose:
 This program prompts the user to enter 5 integers, separated by spaces. It then reverses the order of the integers and outputs the reversed array.
