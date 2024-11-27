@@ -10,14 +10,14 @@ This program prompts the user to enter a number. It then classifies the number a
 To compile and assemble the code, use the following commands:
 
 ```bash
-nasm -f elf32 task1NumberClassification.asm -o task1NumberClassification.o
-ld -m elf_i386 -s -o task1NumberClassification task1NumberClassification.o
+nasm -f elf32 task1.asm -o task1.o
+ld -m elf_i386 -s -o task1 task1.o
 ```
 ### 2. **Running the Program:**
 After assembling and linking the program, you can run it using the following command:
 
 ```bash
-./task1NumberClassification
+./task1
 ```
 ## Inputs:
 Input a single integer
